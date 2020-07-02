@@ -1,0 +1,42 @@
+#%RAML 1.0
+title: API REST con Ruby on Rails
+description: WISBOO Challenge
+mediaType: application/json
+
+/api/v1/urls:
+  description: Simple REST API para acortar urls
+  post:
+    description: Obtiene una url corta segun argumento.
+    queryParameters:
+      url:
+        description: "El enlace que se desea abreviar"
+        required: false
+        type: string
+        example: "www.facebook.com"
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "url": "www.facebook.com",
+                "shorturl": "AIxm49WyNs1E_A"
+              }
+  
+  get:
+    description: Lista de todas las urls almacenadas en la base de datos
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              [
+                {
+                  "url": "www.google.com",
+                  "shorturl": "JK51poeqZmOHaA"
+                },
+                {
+                  "url": "www.facebook.com",
+                  "shorturl": "AIxm49WyNs1E_A"
+                }
+              ]
